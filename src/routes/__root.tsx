@@ -125,6 +125,11 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <Web3Providers>
         <div className="flex min-h-screen flex-col">
+          <div className="aurora" aria-hidden>
+            <div className="blob b1" />
+            <div className="blob b2" />
+            <div className="blob b3" />
+          </div>
           <Navbar />
           <main className="flex-1">
             <Outlet />

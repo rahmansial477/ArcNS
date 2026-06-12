@@ -82,14 +82,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "ArcNS — Arc Name Service" },
-      { name: "description", content: "Claim your .arc domain on Arc Testnet. Your identity on Arc." },
+      { title: "ArcNS" },
+      { name: "description", content: "Claim your .arc domain on Arc Testnet Your identity on Arc." },
       { name: "author", content: "Rahman" },
-      { property: "og:title", content: "ArcNS — Arc Name Service" },
-      { property: "og:description", content: "Claim your .arc domain on Arc Testnet." },
+      { property: "og:title", content: "ArcNS" },
+      { property: "og:description", content: "Claim your .arc domain on Arc Testnet Your identity on Arc." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "ArcNS" },
+      { name: "twitter:description", content: "Claim your .arc domain on Arc Testnet Your identity on Arc." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/d3c30b46-4ccc-4497-a642-6295e4bc4082" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/d3c30b46-4ccc-4497-a642-6295e4bc4082" },
     ],
     links: [
       {
@@ -125,11 +129,6 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <Web3Providers>
         <div className="flex min-h-screen flex-col">
-          <div className="aurora" aria-hidden>
-            <div className="blob b1" />
-            <div className="blob b2" />
-            <div className="blob b3" />
-          </div>
           <Navbar />
           <main className="flex-1">
             <Outlet />

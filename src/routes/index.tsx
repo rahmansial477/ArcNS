@@ -29,10 +29,13 @@ function Index() {
         <div className="inline-flex items-center gap-2 glass rounded-full px-4 py-1.5 text-xs font-medium text-[#06b6d4] mb-6">
           <Sparkles size={14} /> Live on Arc Testnet
         </div>
-        <h1 className="text-4xl md:text-7xl font-black tracking-tight">
+        <h1
+          className="text-5xl md:text-7xl font-extrabold tracking-tight text-white"
+          style={{ textShadow: "0 0 30px rgba(99,102,241,0.5)" }}
+        >
           Claim Your <span className="text-[#06b6d4] text-glow">.arc</span> Domain
         </h1>
-        <p className="mt-4 text-lg md:text-xl text-muted-foreground max-w-xl mx-auto">
+        <p className="gradient-text mt-4 text-xl md:text-2xl font-bold max-w-xl mx-auto">
           Your identity on Arc Testnet.
         </p>
         <div className="mt-10">
@@ -62,25 +65,55 @@ function Index() {
 
 function StatCard({ label, value }: { label: string; value: string }) {
   return (
-    <div className="glass rounded-2xl p-6 text-center">
-      <p className="text-xs uppercase tracking-widest font-medium text-white">{label}</p>
-      <p className="text-3xl md:text-4xl font-bold text-[#06b6d4] mt-2" style={{ textShadow: "0 0 24px rgba(6,182,212,0.45)" }}>{value}</p>
+    <div
+      className="rounded-xl p-6 text-center transition-all hover:-translate-y-0.5"
+      style={{
+        background: "rgba(255,255,255,0.05)",
+        backdropFilter: "blur(10px)",
+        WebkitBackdropFilter: "blur(10px)",
+        border: "1px solid rgba(99,102,241,0.4)",
+        boxShadow: "inset 0 0 0 1px rgba(6,182,212,0.15)",
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.borderColor = "rgba(6,182,212,0.8)";
+        e.currentTarget.style.boxShadow = "0 0 15px rgba(6,182,212,0.3)";
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.borderColor = "rgba(99,102,241,0.4)";
+        e.currentTarget.style.boxShadow = "inset 0 0 0 1px rgba(6,182,212,0.15)";
+      }}
+    >
+      <p className="text-xs uppercase tracking-widest font-semibold text-white opacity-100">{label}</p>
+      <p className="text-3xl md:text-4xl font-bold text-[#06b6d4] mt-2" style={{ textShadow: "0 0 24px rgba(6,182,212,0.45)" }}>
+        {value}
+      </p>
     </div>
   );
 }
 
 function Step({ n, icon, title, desc }: { n: number; icon: React.ReactNode; title: string; desc: string }) {
   return (
-    <div className="glass rounded-2xl p-6 relative hover:shadow-glow transition-all">
-      <div
-        className="absolute top-4 right-4 inline-flex h-10 w-10 items-center justify-center rounded-full text-[#06b6d4] font-extrabold text-2xl"
-        style={{ background: "rgba(6,182,212,0.2)", boxShadow: "0 0 18px rgba(6,182,212,0.45)" }}
-      >
-        {n}
-      </div>
+    <div
+      className="rounded-2xl p-6 relative transition-all"
+      style={{
+        background: "rgba(255,255,255,0.05)",
+        backdropFilter: "blur(20px)",
+        WebkitBackdropFilter: "blur(20px)",
+        border: "1px solid rgba(139,92,246,0.4)",
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.borderColor = "rgba(6,182,212,0.6)";
+        e.currentTarget.style.boxShadow = "0 0 20px rgba(6,182,212,0.2)";
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.borderColor = "rgba(139,92,246,0.4)";
+        e.currentTarget.style.boxShadow = "none";
+      }}
+    >
+      <div className="absolute top-4 right-4 text-3xl font-extrabold gradient-text">{n}</div>
       <div className="text-[#06b6d4] mb-3">{icon}</div>
       <h3 className="text-xl font-semibold mb-2 text-white">{title}</h3>
-      <p className="text-sm font-normal" style={{ color: "#cbd5e1" }}>{desc}</p>
+      <p className="text-sm" style={{ color: "#cbd5e1" }}>{desc}</p>
     </div>
   );
 }

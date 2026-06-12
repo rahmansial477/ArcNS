@@ -88,25 +88,33 @@ export function MintBox() {
 
   const busy = minting !== null || confirming;
   const showStatus = valid && !isFetching && available !== undefined;
+  const borderState =
+    showStatus && available === true ? "is-available" :
+    showStatus && available === false ? "is-taken" : "";
 
   return (
     <div className="w-full max-w-2xl mx-auto">
-      <div className="glass-strong rounded-2xl p-2 flex items-center gap-2 shadow-glow">
-        <div className="pl-4">
-          <Search className="text-[#06b6d4]" size={20} />
+      <div className={`search-glow ${borderState}`}>
+        <div className="search-inner flex items-center gap-2 p-2">
+          <div className="pl-4">
+            <Search className="text-[#06b6d4]" size={20} />
+          </div>
+          <input
+            value={name}
+            onChange={(e) => setName(e.target.value.toLowerCase().replace(/\s/g, ""))}
+            maxLength={MAX_LEN}
+            placeholder="Type your domain name"
+            className="search-input flex-1 bg-transparent py-4 text-lg text-white outline-none placeholder:text-[#94a3b8]"
+          />
+          <span className="pr-2 text-lg font-bold font-mono text-[#06b6d4]">.arc</span>
+          <span className="pr-4 text-xs font-mono tabular-nums" style={{ color: "#cbd5e1" }}>
+            {name.length}/{MAX_LEN}
+          </span>
         </div>
-        <input
-          value={name}
-          onChange={(e) => setName(e.target.value.toLowerCase().replace(/\s/g, ""))}
-          maxLength={MAX_LEN}
-          placeholder="yourname"
-          className="flex-1 bg-transparent py-4 text-lg outline-none placeholder:text-muted-foreground/50"
-        />
-        <span className="pr-2 text-lg text-muted-foreground font-mono">.arc</span>
-        <span className="pr-4 text-xs font-mono text-muted-foreground/70 tabular-nums">
-          {name.length}/{MAX_LEN}
-        </span>
       </div>
+      <p className="mt-2 text-center text-xs" style={{ color: "#cbd5e1" }}>
+        {MIN_LEN}–{MAX_LEN} characters, lowercase letters & numbers only
+      </p>
 
       <div className="mt-4 min-h-[80px]">
         {name && !valid && (

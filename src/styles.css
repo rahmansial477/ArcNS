@@ -220,3 +220,49 @@
   color: #ffffff;
   transition: box-shadow .25s ease, transform .15s ease, filter .25s ease;
 }
+
+/* Animated gradient text for hero subheading */
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50%      { background-position: 100% 50%; }
+}
+.gradient-text {
+  background: linear-gradient(135deg, #06b6d4, #6366f1, #8b5cf6, #06b6d4);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: gradient-shift 6s ease infinite;
+}
+
+/* Animated rotating gradient border for search box */
+@keyframes border-spin {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+.search-glow {
+  position: relative;
+  border-radius: 16px;
+  padding: 2px;
+  background: linear-gradient(120deg, #6366f1, #06b6d4, #8b5cf6, #6366f1);
+  background-size: 200% 200%;
+  animation: border-spin 3s linear infinite;
+  box-shadow: 0 0 28px rgba(99,102,241,0.35), 0 0 18px rgba(6,182,212,0.3);
+  transition: box-shadow .3s ease;
+}
+.search-glow.is-available {
+  background: linear-gradient(120deg, #00ff88, #06b6d4, #00ff88);
+  background-size: 200% 200%;
+  box-shadow: 0 0 32px rgba(0,255,136,0.45);
+}
+.search-glow.is-taken {
+  background: linear-gradient(120deg, #ff4444, #ff7676, #ff4444);
+  background-size: 200% 200%;
+  box-shadow: 0 0 32px rgba(255,68,68,0.45);
+}
+.search-glow > .search-inner {
+  background: rgba(13, 13, 26, 0.85);
+  border-radius: 14px;
+}
+.search-input:focus { outline: none; }

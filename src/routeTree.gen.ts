@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as MyDomainsRouteImport } from './routes/my-domains'
 import { Route as LeaderboardRouteImport } from './routes/leaderboard'
+import { Route as FaucetRouteImport } from './routes/faucet'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as DomainNameRouteImport } from './routes/domain.$name'
 
@@ -22,6 +23,11 @@ const MyDomainsRoute = MyDomainsRouteImport.update({
 const LeaderboardRoute = LeaderboardRouteImport.update({
   id: '/leaderboard',
   path: '/leaderboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaucetRoute = FaucetRouteImport.update({
+  id: '/faucet',
+  path: '/faucet',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -37,12 +43,14 @@ const DomainNameRoute = DomainNameRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/faucet': typeof FaucetRoute
   '/leaderboard': typeof LeaderboardRoute
   '/my-domains': typeof MyDomainsRoute
   '/domain/$name': typeof DomainNameRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/faucet': typeof FaucetRoute
   '/leaderboard': typeof LeaderboardRoute
   '/my-domains': typeof MyDomainsRoute
   '/domain/$name': typeof DomainNameRoute
@@ -50,20 +58,28 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/faucet': typeof FaucetRoute
   '/leaderboard': typeof LeaderboardRoute
   '/my-domains': typeof MyDomainsRoute
   '/domain/$name': typeof DomainNameRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/leaderboard' | '/my-domains' | '/domain/$name'
+  fullPaths: '/' | '/faucet' | '/leaderboard' | '/my-domains' | '/domain/$name'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/leaderboard' | '/my-domains' | '/domain/$name'
-  id: '__root__' | '/' | '/leaderboard' | '/my-domains' | '/domain/$name'
+  to: '/' | '/faucet' | '/leaderboard' | '/my-domains' | '/domain/$name'
+  id:
+    | '__root__'
+    | '/'
+    | '/faucet'
+    | '/leaderboard'
+    | '/my-domains'
+    | '/domain/$name'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  FaucetRoute: typeof FaucetRoute
   LeaderboardRoute: typeof LeaderboardRoute
   MyDomainsRoute: typeof MyDomainsRoute
   DomainNameRoute: typeof DomainNameRoute
@@ -85,6 +101,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LeaderboardRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/faucet': {
+      id: '/faucet'
+      path: '/faucet'
+      fullPath: '/faucet'
+      preLoaderRoute: typeof FaucetRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -104,6 +127,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  FaucetRoute: FaucetRoute,
   LeaderboardRoute: LeaderboardRoute,
   MyDomainsRoute: MyDomainsRoute,
   DomainNameRoute: DomainNameRoute,
@@ -111,3 +135,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

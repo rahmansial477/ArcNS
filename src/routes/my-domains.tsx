@@ -39,7 +39,7 @@ function MyDomainsPage() {
       ) : !data || (data as string[]).length === 0 ? (
         <div className="glass rounded-2xl p-12 text-center">
           <Globe className="mx-auto mb-4 text-[#06b6d4]" size={48} />
-          <p className="text-lg font-semibold mb-2">No domains yet</p>
+          <p className="text-lg font-semibold mb-2">No domains yet!</p>
           <p className="text-muted-foreground mb-6">Mint your first .arc domain!</p>
           <Link to="/" className="inline-flex rounded-lg bg-[#06b6d4] text-black font-bold px-6 py-3 hover:shadow-glow">
             Mint now
@@ -52,11 +52,12 @@ function MyDomainsPage() {
               key={name}
               to="/domain/$name"
               params={{ name }}
-              className="glass rounded-2xl p-6 hover:shadow-glow transition-all group"
+              className="glass rounded-2xl p-6 hover:shadow-glow hover:border-[#06b6d4]/40 hover:-translate-y-0.5 transition-all group"
             >
               <Globe className="text-[#06b6d4] mb-3" size={28} />
               <p className="text-xl font-bold group-hover:text-[#06b6d4] transition-colors">{name}.arc</p>
-              <p className="text-xs text-muted-foreground mt-2 font-mono truncate">
+              <p className="text-xs text-muted-foreground mt-3">Owned domain</p>
+              <p className="text-xs text-muted-foreground mt-1 font-mono truncate">
                 {address?.slice(0, 6)}…{address?.slice(-4)}
               </p>
             </Link>

@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as MyDomainsRouteImport } from './routes/my-domains'
 import { Route as LeaderboardRouteImport } from './routes/leaderboard'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as DomainNameRouteImport } from './routes/domain.$name'
 
 const MyDomainsRoute = MyDomainsRouteImport.update({
   id: '/my-domains',
@@ -28,35 +29,44 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DomainNameRoute = DomainNameRouteImport.update({
+  id: '/domain/$name',
+  path: '/domain/$name',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/leaderboard': typeof LeaderboardRoute
   '/my-domains': typeof MyDomainsRoute
+  '/domain/$name': typeof DomainNameRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/leaderboard': typeof LeaderboardRoute
   '/my-domains': typeof MyDomainsRoute
+  '/domain/$name': typeof DomainNameRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/leaderboard': typeof LeaderboardRoute
   '/my-domains': typeof MyDomainsRoute
+  '/domain/$name': typeof DomainNameRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/leaderboard' | '/my-domains'
+  fullPaths: '/' | '/leaderboard' | '/my-domains' | '/domain/$name'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/leaderboard' | '/my-domains'
-  id: '__root__' | '/' | '/leaderboard' | '/my-domains'
+  to: '/' | '/leaderboard' | '/my-domains' | '/domain/$name'
+  id: '__root__' | '/' | '/leaderboard' | '/my-domains' | '/domain/$name'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   LeaderboardRoute: typeof LeaderboardRoute
   MyDomainsRoute: typeof MyDomainsRoute
+  DomainNameRoute: typeof DomainNameRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -82,6 +92,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/domain/$name': {
+      id: '/domain/$name'
+      path: '/domain/$name'
+      fullPath: '/domain/$name'
+      preLoaderRoute: typeof DomainNameRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -89,6 +106,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   LeaderboardRoute: LeaderboardRoute,
   MyDomainsRoute: MyDomainsRoute,
+  DomainNameRoute: DomainNameRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

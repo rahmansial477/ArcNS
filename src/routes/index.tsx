@@ -47,7 +47,7 @@ function Index() {
       </section>
 
       <section className="py-16">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-white">
           How it <span className="text-[#06b6d4]">works</span>
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -63,19 +63,24 @@ function Index() {
 function StatCard({ label, value }: { label: string; value: string }) {
   return (
     <div className="glass rounded-2xl p-6 text-center">
-      <p className="text-xs uppercase tracking-widest text-muted-foreground">{label}</p>
-      <p className="text-2xl md:text-3xl font-bold text-[#06b6d4] mt-2">{value}</p>
+      <p className="text-xs uppercase tracking-widest font-medium text-white">{label}</p>
+      <p className="text-3xl md:text-4xl font-bold text-[#06b6d4] mt-2" style={{ textShadow: "0 0 24px rgba(6,182,212,0.45)" }}>{value}</p>
     </div>
   );
 }
 
 function Step({ n, icon, title, desc }: { n: number; icon: React.ReactNode; title: string; desc: string }) {
   return (
-    <div className="glass rounded-2xl p-6 relative">
-      <div className="absolute top-4 right-4 text-5xl font-black text-[#06b6d4]/10">{n}</div>
+    <div className="glass rounded-2xl p-6 relative hover:shadow-glow transition-all">
+      <div
+        className="absolute top-4 right-4 inline-flex h-10 w-10 items-center justify-center rounded-full text-[#06b6d4] font-extrabold text-2xl"
+        style={{ background: "rgba(6,182,212,0.2)", boxShadow: "0 0 18px rgba(6,182,212,0.45)" }}
+      >
+        {n}
+      </div>
       <div className="text-[#06b6d4] mb-3">{icon}</div>
-      <h3 className="text-xl font-bold mb-2">{title}</h3>
-      <p className="text-sm text-muted-foreground">{desc}</p>
+      <h3 className="text-xl font-semibold mb-2 text-white">{title}</h3>
+      <p className="text-sm font-normal" style={{ color: "#cbd5e1" }}>{desc}</p>
     </div>
   );
 }

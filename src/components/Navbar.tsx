@@ -85,10 +85,11 @@ export function Navbar() {
     { to: "/", label: "Home" },
     { to: "/my-domains", label: "My Domains" },
     { to: "/leaderboard", label: "Leaderboard" },
+    { to: "/faucet", label: "Faucet" },
   ] as const;
 
   return (
-    <header className="sticky top-0 z-40 glass-strong">
+    <header className="sticky top-0 z-40 backdrop-blur-xl bg-white/[0.02] border-b border-white/10">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:px-8">
         <Link to="/" className="flex items-center gap-3">
           <img src={LOGO} alt="Arc" className="h-9 w-9 rounded-full ring-2 ring-[#06b6d4]/50" />

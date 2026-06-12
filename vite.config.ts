@@ -13,6 +13,11 @@ export default defineConfig({
     server: { entry: "server" },
   },
   vite: {
+    resolve: {
+      alias: {
+        events: "events",
+      },
+    },
     build: {
       commonjsOptions: {
         transformMixedEsModules: true,

@@ -39,19 +39,19 @@ function WalletButton() {
           <div className="relative" ref={ref}>
             <button
               onClick={() => setOpen((o) => !o)}
-              className="glass-strong inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium hover:border-[#00d4ff]/60"
+              className="glass-strong inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium hover:border-[#06b6d4]/60"
               aria-label="Wallet menu"
             >
-              <span className="hidden sm:inline text-[#00d4ff] font-mono">{short}</span>
+              <span className="hidden sm:inline text-[#06b6d4] font-mono">{short}</span>
               <MoreVertical size={18} />
             </button>
             {open && (
               <div className="absolute right-0 mt-2 w-64 glass-strong rounded-xl p-3 shadow-glow animate-fade-in z-50">
-                <div className="px-2 py-2 border-b border-[#00d4ff]/10">
+                <div className="px-2 py-2 border-b border-[#06b6d4]/10">
                   <p className="text-[10px] uppercase tracking-widest text-muted-foreground">Address</p>
-                  <p className="font-mono text-sm text-[#00d4ff] break-all">{short}</p>
+                  <p className="font-mono text-sm text-[#06b6d4] break-all">{short}</p>
                 </div>
-                <div className="px-2 py-2 border-b border-[#00d4ff]/10">
+                <div className="px-2 py-2 border-b border-[#06b6d4]/10">
                   <p className="text-[10px] uppercase tracking-widest text-muted-foreground">Network</p>
                   <p className="text-sm">Arc Testnet</p>
                 </div>
@@ -85,15 +85,16 @@ export function Navbar() {
     { to: "/", label: "Home" },
     { to: "/my-domains", label: "My Domains" },
     { to: "/leaderboard", label: "Leaderboard" },
+    { to: "/faucet", label: "Faucet" },
   ] as const;
 
   return (
-    <header className="sticky top-0 z-40 glass-strong">
+    <header className="sticky top-0 z-40 backdrop-blur-xl bg-white/[0.02] border-b border-white/10">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:px-8">
         <Link to="/" className="flex items-center gap-3">
-          <img src={LOGO} alt="Arc" className="h-9 w-9 rounded-full ring-2 ring-[#00d4ff]/50" />
+          <img src={LOGO} alt="Arc" className="h-9 w-9 rounded-full ring-2 ring-[#06b6d4]/50" />
           <span className="text-xl font-bold tracking-tight">
-            Arc<span className="text-[#00d4ff] text-glow">NS</span>
+            Arc<span className="text-[#06b6d4] text-glow">NS</span>
           </span>
         </Link>
 
@@ -102,8 +103,8 @@ export function Navbar() {
             <Link
               key={l.to}
               to={l.to}
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-[#00d4ff]"
-              activeProps={{ className: "text-[#00d4ff]" }}
+              className="text-sm font-medium text-muted-foreground transition-colors hover:text-[#06b6d4]"
+              activeProps={{ className: "text-[#06b6d4]" }}
             >
               {l.label}
             </Link>
@@ -120,14 +121,14 @@ export function Navbar() {
       </div>
 
       {open && (
-        <div className="md:hidden border-t border-[#00d4ff]/10 px-4 py-4 space-y-3">
+        <div className="md:hidden border-t border-[#06b6d4]/10 px-4 py-4 space-y-3">
           {links.map((l) => (
             <Link
               key={l.to}
               to={l.to}
               onClick={() => setOpen(false)}
-              className="block text-base font-medium text-muted-foreground hover:text-[#00d4ff]"
-              activeProps={{ className: "text-[#00d4ff]" }}
+              className="block text-base font-medium text-muted-foreground hover:text-[#06b6d4]"
+              activeProps={{ className: "text-[#06b6d4]" }}
             >
               {l.label}
             </Link>

@@ -93,7 +93,7 @@ export function MintBox() {
     <div className="w-full max-w-2xl mx-auto">
       <div className="glass-strong rounded-2xl p-2 flex items-center gap-2 shadow-glow">
         <div className="pl-4">
-          <Search className="text-[#00d4ff]" size={20} />
+          <Search className="text-[#06b6d4]" size={20} />
         </div>
         <input
           value={name}
@@ -139,7 +139,7 @@ export function MintBox() {
                 <button
                   disabled={busy}
                   onClick={() => mint("EURC")}
-                  className="flex items-center justify-center gap-2 rounded-lg border border-[#7c3aed]/60 text-[#00d4ff] font-bold py-3 hover:bg-[#7c3aed]/10 hover:shadow-glow transition-all disabled:opacity-50"
+                  className="flex items-center justify-center gap-2 rounded-lg border border-[#8b5cf6]/60 text-[#06b6d4] font-bold py-3 hover:bg-[#8b5cf6]/10 hover:shadow-glow transition-all disabled:opacity-50"
                 >
                   {minting === "EURC" && <Loader2 className="animate-spin" size={16} />}
                   Mint with EURC — 1 EURC
@@ -151,7 +151,7 @@ export function MintBox() {
                 href={`https://testnet.arcscan.app/tx/${txHash}`}
                 target="_blank"
                 rel="noreferrer"
-                className="mt-3 inline-flex items-center gap-1 text-xs text-[#00d4ff]"
+                className="mt-3 inline-flex items-center gap-1 text-xs text-[#06b6d4]"
               >
                 View transaction <ExternalLink size={12} />
               </a>

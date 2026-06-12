@@ -30,18 +30,18 @@ function LeaderboardPage() {
   return (
     <div className="mx-auto max-w-4xl px-4 md:px-8 py-12">
       <div className="text-center mb-10">
-        <Trophy className="mx-auto text-[#00d4ff] mb-3" size={42} />
+        <Trophy className="mx-auto text-[#06b6d4] mb-3" size={42} />
         <h1 className="text-4xl md:text-5xl font-bold">
-          Leader<span className="text-[#00d4ff]">board</span>
+          Leader<span className="text-[#06b6d4]">board</span>
         </h1>
         <p className="text-muted-foreground mt-2">
           Total domains minted:{" "}
-          <span className="text-[#00d4ff] font-bold">{total != null ? String(total) : "—"}</span>
+          <span className="text-[#06b6d4] font-bold">{total != null ? String(total) : "—"}</span>
         </p>
       </div>
 
       <div className="glass-strong rounded-2xl overflow-hidden">
-        <div className="grid grid-cols-[60px_1fr_80px] gap-3 px-5 py-3 text-xs uppercase tracking-wider text-muted-foreground border-b border-[#00d4ff]/10">
+        <div className="grid grid-cols-[60px_1fr_80px] gap-3 px-5 py-3 text-xs uppercase tracking-wider text-muted-foreground border-b border-[#06b6d4]/10">
           <span>Rank</span>
           <span>Domain</span>
           <span className="text-right">#</span>
@@ -52,9 +52,9 @@ function LeaderboardPage() {
           domains.map((d, i) => (
             <div
               key={d}
-              className="grid grid-cols-[60px_1fr_80px] gap-3 px-5 py-3 items-center border-b border-[#00d4ff]/5 last:border-0"
+              className="grid grid-cols-[60px_1fr_80px] gap-3 px-5 py-3 items-center border-b border-[#06b6d4]/5 last:border-0"
             >
-              <span className={`font-bold ${i < 3 ? "text-[#00d4ff]" : "text-muted-foreground"}`}>
+              <span className={`font-bold ${i < 3 ? "text-[#06b6d4]" : "text-muted-foreground"}`}>
                 #{i + 1}
               </span>
               <span className="font-mono">{d}.arc</span>

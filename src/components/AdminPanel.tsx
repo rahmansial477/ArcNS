@@ -15,7 +15,7 @@ export function AdminPanel() {
     <>
       <button
         onClick={() => setOpen(true)}
-        className="fixed bottom-6 right-6 z-50 flex items-center gap-2 rounded-full bg-[#00d4ff] px-5 py-3 text-sm font-bold text-black shadow-glow hover:scale-105 transition-transform"
+        className="fixed bottom-6 right-6 z-50 flex items-center gap-2 rounded-full bg-[#06b6d4] px-5 py-3 text-sm font-bold text-black shadow-glow hover:scale-105 transition-transform"
       >
         <Shield size={18} />
         Admin
@@ -56,11 +56,11 @@ function AdminModal({ onClose }: { onClose: () => void }) {
         className="glass-strong relative w-full max-w-2xl max-h-[85vh] overflow-y-auto rounded-2xl p-6"
         onClick={(e) => e.stopPropagation()}
       >
-        <button onClick={onClose} className="absolute right-4 top-4 text-muted-foreground hover:text-[#00d4ff]">
+        <button onClick={onClose} className="absolute right-4 top-4 text-muted-foreground hover:text-[#06b6d4]">
           <X size={22} />
         </button>
         <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
-          <Shield className="text-[#00d4ff]" /> Admin Panel
+          <Shield className="text-[#06b6d4]" /> Admin Panel
         </h2>
 
         <div className="grid grid-cols-3 gap-3 mb-6">
@@ -73,14 +73,14 @@ function AdminModal({ onClose }: { onClose: () => void }) {
           <button
             disabled={busy}
             onClick={() => withdraw(USDC_ADDRESS)}
-            className="flex-1 flex items-center justify-center gap-2 rounded-lg bg-[#00d4ff]/20 border border-[#00d4ff]/40 py-3 font-semibold hover:bg-[#00d4ff]/30 disabled:opacity-50"
+            className="flex-1 flex items-center justify-center gap-2 rounded-lg bg-[#06b6d4]/20 border border-[#06b6d4]/40 py-3 font-semibold hover:bg-[#06b6d4]/30 disabled:opacity-50"
           >
             {busy && <Loader2 className="animate-spin" size={16} />} Withdraw USDC
           </button>
           <button
             disabled={busy}
             onClick={() => withdraw(EURC_ADDRESS)}
-            className="flex-1 flex items-center justify-center gap-2 rounded-lg bg-[#00d4ff]/20 border border-[#00d4ff]/40 py-3 font-semibold hover:bg-[#00d4ff]/30 disabled:opacity-50"
+            className="flex-1 flex items-center justify-center gap-2 rounded-lg bg-[#06b6d4]/20 border border-[#06b6d4]/40 py-3 font-semibold hover:bg-[#06b6d4]/30 disabled:opacity-50"
           >
             {busy && <Loader2 className="animate-spin" size={16} />} Withdraw EURC
           </button>
@@ -104,7 +104,7 @@ function Stat({ label, value }: { label: string; value: string }) {
   return (
     <div className="glass rounded-xl p-4">
       <p className="text-xs uppercase tracking-wider text-muted-foreground">{label}</p>
-      <p className="text-xl font-bold text-[#00d4ff] mt-1 truncate">{value}</p>
+      <p className="text-xl font-bold text-[#06b6d4] mt-1 truncate">{value}</p>
     </div>
   );
 }

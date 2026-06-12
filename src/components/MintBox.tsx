@@ -5,6 +5,8 @@ import { Loader2, Search, CheckCircle2, XCircle, ExternalLink } from "lucide-rea
 import { toast } from "sonner";
 
 const DOMAIN_RE = /^[a-z0-9]+$/;
+const MAX_LEN = 30;
+const MIN_LEN = 3;
 
 export function MintBox() {
   const { address, isConnected } = useAccount();
@@ -19,7 +21,7 @@ export function MintBox() {
     return () => clearTimeout(t);
   }, [name]);
 
-  const valid = debounced.length >= 3 && debounced.length <= 20 && DOMAIN_RE.test(debounced);
+  const valid = debounced.length >= MIN_LEN && debounced.length <= MAX_LEN && DOMAIN_RE.test(debounced);
 
   const { data: available, isFetching, refetch } = useReadContract({
     address: ARCNS_ADDRESS,
@@ -96,17 +98,20 @@ export function MintBox() {
         <input
           value={name}
           onChange={(e) => setName(e.target.value.toLowerCase().replace(/\s/g, ""))}
-          maxLength={20}
+          maxLength={MAX_LEN}
           placeholder="yourname"
           className="flex-1 bg-transparent py-4 text-lg outline-none placeholder:text-muted-foreground/50"
         />
-        <span className="pr-4 text-lg text-muted-foreground font-mono">.arc</span>
+        <span className="pr-2 text-lg text-muted-foreground font-mono">.arc</span>
+        <span className="pr-4 text-xs font-mono text-muted-foreground/70 tabular-nums">
+          {name.length}/{MAX_LEN}
+        </span>
       </div>
 
       <div className="mt-4 min-h-[80px]">
         {name && !valid && (
           <p className="text-sm text-muted-foreground text-center">
-            3–20 chars, lowercase letters & numbers only
+            {MIN_LEN}–{MAX_LEN} chars, lowercase letters & numbers only
           </p>
         )}
         {valid && isFetching && (
@@ -126,7 +131,7 @@ export function MintBox() {
                 <button
                   disabled={busy}
                   onClick={() => mint("USDC")}
-                  className="flex items-center justify-center gap-2 rounded-lg bg-[#00d4ff] text-black font-bold py-3 hover:shadow-glow transition-all disabled:opacity-50"
+                  className="btn-gradient flex items-center justify-center gap-2 rounded-lg font-bold py-3 hover:shadow-glow hover:brightness-110 transition-all disabled:opacity-50"
                 >
                   {minting === "USDC" && <Loader2 className="animate-spin" size={16} />}
                   Mint with USDC — 1 USDC
@@ -134,7 +139,7 @@ export function MintBox() {
                 <button
                   disabled={busy}
                   onClick={() => mint("EURC")}
-                  className="flex items-center justify-center gap-2 rounded-lg border border-[#00d4ff]/50 text-[#00d4ff] font-bold py-3 hover:bg-[#00d4ff]/10 transition-all disabled:opacity-50"
+                  className="flex items-center justify-center gap-2 rounded-lg border border-[#7c3aed]/60 text-[#00d4ff] font-bold py-3 hover:bg-[#7c3aed]/10 hover:shadow-glow transition-all disabled:opacity-50"
                 >
                   {minting === "EURC" && <Loader2 className="animate-spin" size={16} />}
                   Mint with EURC — 1 EURC
@@ -156,7 +161,10 @@ export function MintBox() {
         {showStatus && available === false && (
           <div className="glass rounded-xl p-4 border-red-400/40" style={{ boxShadow: "0 0 24px rgba(239,68,68,0.2)" }}>
             <p className="flex items-center gap-2 text-red-400 font-semibold">
-              <XCircle size={20} /> {debounced}.arc is already taken
+              <XCircle size={20} /> Domain already taken ❌
+            </p>
+            <p className="text-xs text-muted-foreground mt-1">
+              {debounced}.arc has already been minted. Try another name.
             </p>
           </div>
         )}

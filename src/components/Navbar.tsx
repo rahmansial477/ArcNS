@@ -103,7 +103,7 @@ export function Navbar() {
             <Link
               key={l.to}
               to={l.to}
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-[#06b6d4]"
+              className="text-sm font-semibold text-white opacity-100 transition-colors hover:text-[#06b6d4]"
               activeProps={{ className: "text-[#06b6d4]" }}
             >
               {l.label}
@@ -127,7 +127,7 @@ export function Navbar() {
               key={l.to}
               to={l.to}
               onClick={() => setOpen(false)}
-              className="block text-base font-medium text-muted-foreground hover:text-[#06b6d4]"
+              className="block text-base font-semibold text-white hover:text-[#06b6d4]"
               activeProps={{ className: "text-[#06b6d4]" }}
             >
               {l.label}

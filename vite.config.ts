@@ -12,4 +12,21 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  vite: {
+    build: {
+      commonjsOptions: {
+        transformMixedEsModules: true,
+      },
+    },
+    optimizeDeps: {
+      include: [
+        "@walletconnect/time",
+        "@walletconnect/utils",
+        "@walletconnect/core",
+        "@walletconnect/sign-client",
+        "@walletconnect/universal-provider",
+        "@walletconnect/ethereum-provider",
+      ],
+    },
+  },
 });

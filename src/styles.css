@@ -266,3 +266,38 @@
   border-radius: 14px;
 }
 .search-input:focus { outline: none; }
+
+/* Grid pulse hero background */
+.grid-pulse {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  background-color: #0a0f1e;
+  border-radius: inherit;
+}
+.grid-pulse::before,
+.grid-pulse::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background-image:
+    linear-gradient(rgba(0, 191, 255, 1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 191, 255, 1) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+.grid-pulse::before {
+  opacity: 0.09;
+}
+.grid-pulse::after {
+  opacity: 0;
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, black 0%, transparent 60%);
+  mask-image: radial-gradient(circle at 50% 50%, black 0%, transparent 60%);
+  animation: grid-pulse-wave 3.5s ease-in-out infinite;
+}
+@keyframes grid-pulse-wave {
+  0%   { opacity: 0; -webkit-mask-size: 0% 0%; mask-size: 0% 0%; -webkit-mask-position: 50% 50%; mask-position: 50% 50%; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; }
+  40%  { opacity: 0.38; }
+  100% { opacity: 0; -webkit-mask-size: 220% 220%; mask-size: 220% 220%; -webkit-mask-position: -60% -60%; mask-position: -60% -60%; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; }
+}

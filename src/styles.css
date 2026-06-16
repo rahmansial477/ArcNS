@@ -292,12 +292,11 @@
 }
 .grid-pulse::after {
   opacity: 0;
-  -webkit-mask-image: radial-gradient(circle at 50% 50%, black 0%, transparent 60%);
-  mask-image: radial-gradient(circle at 50% 50%, black 0%, transparent 60%);
-  animation: grid-pulse-wave 3.5s ease-in-out infinite;
+  animation: grid-pulse-wave 3.5s ease-out infinite;
+  transform-origin: 50% 50%;
 }
 @keyframes grid-pulse-wave {
-  0%   { opacity: 0; -webkit-mask-size: 0% 0%; mask-size: 0% 0%; -webkit-mask-position: 50% 50%; mask-position: 50% 50%; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; }
-  40%  { opacity: 0.38; }
-  100% { opacity: 0; -webkit-mask-size: 220% 220%; mask-size: 220% 220%; -webkit-mask-position: -60% -60%; mask-position: -60% -60%; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; }
+  0%   { opacity: 0; clip-path: circle(0% at 50% 50%); }
+  35%  { opacity: 0.38; }
+  100% { opacity: 0; clip-path: circle(75% at 50% 50%); }
 }

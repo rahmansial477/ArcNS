@@ -266,3 +266,37 @@
   border-radius: 14px;
 }
 .search-input:focus { outline: none; }
+
+/* Grid pulse hero background */
+.grid-pulse {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  background-color: #0a0f1e;
+  border-radius: inherit;
+}
+.grid-pulse::before,
+.grid-pulse::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background-image:
+    linear-gradient(rgba(0, 191, 255, 1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 191, 255, 1) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+.grid-pulse::before {
+  opacity: 0.09;
+}
+.grid-pulse::after {
+  opacity: 0;
+  animation: grid-pulse-wave 3.5s ease-out infinite;
+  transform-origin: 50% 50%;
+}
+@keyframes grid-pulse-wave {
+  0%   { opacity: 0; clip-path: circle(0% at 50% 50%); }
+  35%  { opacity: 0.38; }
+  100% { opacity: 0; clip-path: circle(75% at 50% 50%); }
+}

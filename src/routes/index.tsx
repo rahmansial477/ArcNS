@@ -25,8 +25,7 @@ function Index() {
 
   return (
     <div className="mx-auto max-w-7xl px-4 md:px-8">
-      <section className="relative pt-16 pb-12 md:pt-24 md:pb-16 text-center overflow-hidden rounded-2xl">
-        <div className="grid-pulse" aria-hidden="true" />
+      <section className="relative pt-16 pb-12 md:pt-24 md:pb-16 text-center">
         <div className="relative z-[1]">
         <div className="inline-flex items-center gap-2 glass rounded-full px-4 py-1.5 text-xs font-medium text-[#06b6d4] mb-6">
           <Sparkles size={14} /> Live on Arc Testnet

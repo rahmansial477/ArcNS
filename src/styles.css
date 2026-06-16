@@ -310,6 +310,6 @@
 }
 @keyframes grid-pulse-wave {
   0%   { opacity: 0; clip-path: circle(0% at 50% 50%); }
-  35%  { opacity: 0.38; }
-  100% { opacity: 0; clip-path: circle(75% at 50% 50%); }
+  35%  { opacity: 0.55; }
+  100% { opacity: 0; clip-path: circle(95% at 50% 50%); }
 }

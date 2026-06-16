@@ -152,12 +152,25 @@
     pointer-events: none;
     z-index: 0;
     background-image:
-      linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-    background-size: 48px 48px;
-    mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black, transparent 80%);
-    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black, transparent 80%);
-    animation: grid-pan 30s linear infinite;
+      linear-gradient(rgba(0, 191, 255, 1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 191, 255, 1) 1px, transparent 1px);
+    background-size: 44px 44px;
+    opacity: 0.18;
+  }
+
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image:
+      linear-gradient(rgba(0, 191, 255, 1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 191, 255, 1) 1px, transparent 1px);
+    background-size: 44px 44px;
+    opacity: 0;
+    animation: grid-pulse-wave 3.5s ease-out infinite;
+    transform-origin: 50% 50%;
   }
 
   #root, main, header, footer { position: relative; z-index: 1; }

@@ -1,45 +1,57 @@
-<div align="center">⚡ ArcNS
+<div align="center">
 
-Your identity on Arc Testnet
+#  ArcNS
 
-Claim your own ".arc" domain and build your on-chain identity
+### Your identity on Arc Testnet
 
-<br/>""Live on Arc Testnet" (https://img.shields.io/badge/Network-Arc%20Testnet-06b6d4?style=for-the-badge)" (https://arc-ns.lovable.app/)
-""React" (https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=white)" (https://react.dev/)
-""TypeScript" (https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript&logoColor=white)" (https://www.typescriptlang.org/)
-""Vite" (https://img.shields.io/badge/Vite-7-646CFF?style=for-the-badge&logo=vite&logoColor=white)" (https://vitejs.dev/)
+Claim your own `.arc` domain and build your on-chain identity
 
-<br/><a href="https://arc-ns.lovable.app/">
-<img src="https://img.shields.io/badge/🚀%20Live%20Demo-Open%20ArcNS-06b6d4?style=for-the-badge" />
-</a></div>---
+<br>
 
-🌐 What is ArcNS?
+<img src="https://img.shields.io/badge/Network-Arc%20Testnet-06b6d4?style=for-the-badge" alt="Arc Testnet">
 
-ArcNS is an on-chain naming application built for Arc Testnet.
+<img src="https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=white" alt="React">
 
-It allows users to search for a ".arc" domain, check its availability, connect their wallet and mint the domain directly on-chain using USDC or EURC.
+<img src="https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript">
 
-ArcNS is designed to make blockchain identity more human-readable by giving users recognizable ".arc" names instead of relying only on long wallet addresses.
+<img src="https://img.shields.io/badge/Vite-7-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite">
 
----
+<br><br>
 
-✨ Features
+<a href="https://arc-ns.lovable.app/">
+<img src="https://img.shields.io/badge/%20LIVE%20DEMO-OPEN%20ARCNS-06b6d4?style=for-the-badge" alt="Live Demo">
+</a>
 
-- 🔎 Real-time availability checking
-- 🌐 On-chain ".arc" domain minting
-- 💵 Mint with USDC
-- 💶 Mint with EURC
-- 👛 Web3 wallet connection
-- ⚡ Automatic token allowance checking
-- 🔐 ERC-20 approval flow
-- ⛓️ Smart contract interaction through Wagmi & Viem
-- 🔗 Transaction tracking through ArcScan
-- 📊 Live total minted counter
-- 📱 Responsive Web3 interface
+</div>
 
 ---
 
-🧭 How It Works
+##  What is ArcNS?
+
+**ArcNS** is an on-chain naming application built for **Arc Testnet**.
+
+It allows users to search for a `.arc` domain, check its availability, connect their wallet and mint the domain directly on-chain using **USDC or EURC**.
+
+ArcNS is designed to make blockchain identity more human-readable by giving users recognizable `.arc` names instead of relying only on long wallet addresses.
+
+---
+
+##  Features
+
+-  Real-time domain availability checking
+-  On-chain `.arc` domain minting
+-  Mint with USDC
+-  Mint with EURC
+-  Web3 wallet connection
+-  Automatic token allowance checking
+-  ERC-20 approval flow
+-  Smart contract interaction
+-  Transaction tracking through ArcScan
+-  Live total minted counter
+-  Responsive Web3 interface
+---
+
+ How It Works
 
         Connect Wallet
               │
@@ -78,7 +90,7 @@ ArcNS is designed to make blockchain identity more human-readable by giving user
 
 ---
 
-🔥 Domain Minting
+ Domain Minting
 
 Users can enter a domain name and instantly check whether it is available.
 
@@ -97,7 +109,7 @@ web3.arc
 
 ---
 
-💰 Mint Price
+ Mint Price
 
 Each domain currently costs:
 
@@ -109,7 +121,7 @@ The application handles the ERC-20 approval flow automatically when the wallet d
 
 ---
 
-⛓️ Smart Contract
+ Smart Contract
 
 ArcNS currently interacts with a deployed contract on Arc Testnet.
 
@@ -139,7 +151,7 @@ ArcNS integrates with contract functions for:
 
 ---
 
-🛠️ Tech Stack
+ Tech Stack
 
 Frontend
 
@@ -165,7 +177,7 @@ Application
 
 ---
 
-🚀 Getting Started
+ Getting Started
 
 Requirements
 
@@ -194,7 +206,7 @@ The development server URL will be shown in your terminal.
 
 ---
 
-📦 Production Build
+ Production Build
 
 Build the application:
 
@@ -206,7 +218,7 @@ npm run preview
 
 ---
 
-🧪 Development
+ Development
 
 Run ESLint:
 
@@ -218,11 +230,11 @@ npm run format
 
 ---
 
-🔗 Live Demo
+ Live Demo
 
 <div align="center"><a href="https://arc-ns.lovable.app/"><img src="https://img.shields.io/badge/🚀%20Open%20ArcNS-Live%20Demo-06b6d4?style=for-the-badge" /></a></div>---
 
-🎯 Why ArcNS?
+ Why ArcNS?
 
 Blockchain addresses are difficult to remember, read and share.
 
@@ -238,7 +250,7 @@ yourname.arc
 
 ---
 
-🗺️ Roadmap
+ Roadmap
 
 - [x] ".arc" domain availability checking
 - [x] USDC minting
@@ -257,7 +269,7 @@ yourname.arc
 
 ---
 
-⚠️ Testnet Notice
+ Testnet Notice
 
 ArcNS is currently deployed for Arc Testnet.
 
@@ -265,7 +277,7 @@ Testnet assets are for testing purposes and should not be treated as real-world 
 
 ---
 
-🤝 Contributing
+Contributing
 
 Contributions, ideas and feedback are welcome.
 
@@ -286,16 +298,16 @@ Then open a Pull Request.
 
 ---
 
-📄 License
+ License
 
 Please check the repository for the current license and usage terms.
 
 ---
 
-<div align="center">⚡ Built for Arc Testnet
+<div align="center"> Built for Arc Testnet
 
 ArcNS — Your identity on Arc Testnet
 
 <br/><a href="https://arc-ns.lovable.app/">
-<img src="https://img.shields.io/badge/🚀%20Try%20ArcNS-06b6d4?style=for-the-badge" />
+<img src="https://img.shields.io/badge/%20Try%20ArcNS-06b6d4?style=for-the-badge" />
 </a></div>
